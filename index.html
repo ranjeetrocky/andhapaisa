@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andhaapaisa.com</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+
+<body class="content" onclick="play()" onfocus="play()" onmouseover="play()" onmouseenter="play()" onmousedown="play()">
+    <marquee id="notice" direction="left" scrollamount="12">
+        Click anywhere to Play
+    </marquee>
+    <img id='baap' src="./chalu (1).JPG" class="bg" height="100" alt="Baap | Chalu | Andha | Canedda">
+    <audio preload="auto" autoplay loop id="myAudio">
+        <source src="./andhapaisa.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <img src="./andhiNote.png" alt="Andhi Note" style="display: none;" id='andhiNote'>
+    <canvas id="canvas"></canvas>
+    <script>
+        let index = 1
+        img1 = new Image()
+        img1.src = './chalu (1).JPG'
+        // imgs.push(img1)
+        img2 = new Image()
+        img2.src = './chalu (2).JPG'
+        // imgs.push(img2)
+        img3 = new Image()
+        img3.src = './chalu (3).JPG'
+        // imgs.push(img3)
+        srcs = [img1.src, img2.src, img3.src]
+        baap = document.getElementById('baap')
+        setInterval(() => {
+            if (index === 2) {
+                index = 0
+            } else {
+                index++
+            }
+            baap.src = srcs[index]
+        }, 700)
+    </script>
+</body>
+<script>
+    function play() {
+        document.getElementById('myAudio').play()
+    }
+</script>
+<script src="./main.js"></script>
+
+</html>
